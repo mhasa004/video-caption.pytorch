@@ -40,7 +40,7 @@ def parse_opt():
 
     # Model settings
     parser.add_argument(
-        "--model", type=str, default='S2VTModel', help="with model to use")
+        "--model", type=str, default='S2VTAttModel', help="with model to use")
 
     parser.add_argument(
         "--max_len",
@@ -50,7 +50,7 @@ def parse_opt():
     parser.add_argument(
         "--bidirectional",
         type=int,
-        default=0,
+        default=1,
         help="0 for disable, 1 for enable. encoder/decoder bidirectional.")
 
     parser.add_argument(
@@ -59,7 +59,7 @@ def parse_opt():
         default=512,
         help='size of the rnn hidden layer')
     parser.add_argument(
-        '--num_layers', type=int, default=1, help='number of layers in the RNN')
+        '--num_layers', type=int, default=2, help='number of layers in the RNN')
     parser.add_argument(
         '--input_dropout_p',
         type=float,
@@ -100,7 +100,7 @@ def parse_opt():
     parser.add_argument(
         '--self_crit_after',
         type=int,
-        default=-1,
+        default=50,
         help='After what epoch do we start finetuning the CNN? \
                         (-1 = disable; never finetune, 0 = finetune from start)'
     )
